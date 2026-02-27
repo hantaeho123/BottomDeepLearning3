@@ -9,10 +9,10 @@
 
 | 📊 8.3 전문가 vs 초보자 스윙 비교 |
 | :---: |
-| <video src="https://github.com/user-attachments/assets/f73b143d-3ac7-4096-91c4-07d7e8f035d6" autoplay loop muted playsinline width="50%"></video> |
+| <video src="https://github.com/user-attachments/assets/f73b143d-3ac7-4096-91c4-07d7e8f035d6" autoplay loop muted playsinline width="60%"></video> |
 | **정석 자세 1:1 시각화**<br>초보자(65점)와 전문가(90점)의 자세 차이를 직관적으로 비교 분석합니다. |
 
 | 📅 8.4 성장 리포트 및 캘린더 | ⚙️ 8.5 마이페이지 (계정 관리) |
 | :---: | :---: |
-| <video src="https://github.com/user-attachments/assets/f78e6aa3-2811-4aa9-ae94-401de94775ac" autoplay loop muted playsinline width="100%"></video> | <video src="https://github.com/user-attachments/assets/74bed9c2-a241-4f32-b0a7-c5dc92c738f6" autoplay loop muted playsinline width="100%"></video> |
+| <video src="https://github.com/user-attachments/assets/f78e6aa3-2811-4aa9-ae94-401de94775ac" autoplay loop muted playsinline width="120%"></video> | <video src="https://github.com/user-attachments/assets/74bed9c2-a241-4f32-b0a7-c5dc92c738f6" autoplay loop muted playsinline width="120%"></video> |
 | **기간별 성장 추이 확인**<br>누적된 데이터를 바탕으로 LLM 종합 피드백과 유튜브 영상을 추천합니다. | **사용자 설정 및 탈퇴**<br>개인 정보 수정 및 안전한 계정 관리 기능을 제공합니다. |
