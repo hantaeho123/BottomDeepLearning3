@@ -1,84 +1,30 @@
+## ✨ 8. 데모 영상 (Demo)
 
+### 🏸 8.1 그립 교정
+> 올바른 그립 여부를 실시간으로 판별하고 즉각적인 피드백을 제공합니다.
+<p align="center">
+  <video src="https://github.com/user-attachments/assets/f5c024e4-2fc8-47ab-afb7-af6814f3000f" autoplay loop muted playsinline width="70%"></video>
+</p>
 
-# 🏸 민턴 각? (Minton-Angle)
+### 🎥 8.2 실시간 레슨 모드
+> 웹캠을 통해 사용자의 스윙 동작을 추적하고 가이드를 제공합니다.
+<p align="center">
+  <video src="https://github.com/user-attachments/assets/9aae412e-16f1-484b-815e-41b4d04210fe" autoplay loop muted playsinline width="70%"></video>
+</p>
 
-> **배드민턴 입문자를 위한 AI 코칭 앱**
-> "오늘 배드민턴 각?" 이라는 친근한 제안과, 입문자에게 꼭 필요한 "정석의 각도"를 알려주겠다는 두 가지 의미를 담았습니다.
+### 📊 8.3 초보자 영상 (65점) vs 전문가 영상 (90점)
+> 내 자세와 전문가의 정석 자세를 1:1로 비교하여 직관적으로 보여줍니다.
+<p align="center">
+  <video src="https://github.com/user-attachments/assets/f73b143d-3ac7-4096-91c4-07d7e8f035d6" autoplay loop muted playsinline width="70%"></video>
+</p>
 
-🔗 **서비스 링크:** [minton-angle.vercel.app](https://minton-angle.vercel.app)
+### 📅 8.4 리포트 캘린더 및 성장 리포트
+> 누적된 데이터를 바탕으로 주/월 단위 성장 추이와 LLM 맞춤형 피드백을 제공합니다.
+<p align="center">
+  <video src="https://github.com/user-attachments/assets/f78e6aa3-2811-4aa9-ae94-401de94775ac" autoplay loop muted playsinline width="70%"></video>
+</p>
 
----
-
-## 🎯 1. 프로젝트 개요 (Overview)
-배드민턴은 남녀노소 즐기는 압도적인 인기 스포츠이지만, 입문자들이 겪는 진입 장벽이 존재합니다. 레슨을 받기에는 시간과 비용, 장소가 한정적이며, 기존 서비스들은 "스윙을 열심히 연습해보세요"와 같은 추상적인 피드백과 시각적 지표 부재로 인해 자기주도 학습에 한계가 있었습니다.
-
-**민턴 각?**은 이러한 문제를 해결하기 위해 컴퓨터 비전(CV)과 LLM을 결합하여, 스마트폰 하나로 언제 어디서나 1:1 맞춤형 AI 코칭을 받을 수 있는 서비스를 제공합니다.
-
----
-
-## ✨ 2. 주요 기능 (Key Features)
-
-* **그립 교정 (Grip Correction)**
-  부상 방지와 실력 향상의 기초인 '올바른 그립' 여부를 실시간으로 판별합니다.
-* **기본 스윙 자세 교정 (Swing Posture Correction)**
-  스윙을 3단계(준비, 백스윙, 임팩트)로 구분하여 세분화된 자세 분석을 제공합니다. 전문가(국가대표 선출 코치)의 정석 자세(Ground Truth)와 내 자세를 1:1로 비교 시각화합니다.
-* **LLM 종합 AI 피드백 리포트 (Comprehensive Report)**
-  과거 기록을 바탕으로 주/월 단위 성장 추이를 분석합니다. 점수가 낮고 변동성이 큰 동작을 짚어주고, RAG 기반 맞춤형 코칭 피드백과 유튜브 추천 영상을 제공합니다.
-
----
-
-## 🛠 3. 기술 스택 (Tech Stack)
-
-* **Frontend:** HTML5, CSS3, JavaScript (Deployed on Vercel)
-* **Backend:** FastAPI, Python (Deployed on AWS Cloud / Docker)
-* **AI/CV Models:** YOLO11n, MediaPipe, TrackNetV3, Llama-3.1-8b-instant
-* **Database:** PostgreSQL
-* **Collaboration:** GitHub, Notion, Discord
-
----
-
-## 🧠 4. 핵심 AI 알고리즘 (Core AI Algorithms)
-
-### 4.1. 그립 분류 알고리즘 (YOLO11n)
-초기에는 MediaPipe 기반 3D 좌표 각도 측정 방식을 시도했으나, 특정 구도에서의 인식 한계와 손가락 겹침 문제로 인해 알고리즘이 정상 작동하지 않는 한계가 있었습니다. 이를 해결하기 위해 단순 각도 계산 방식을 버리고 YOLO11n 기반의 Object Classification 문제로 재정의했습니다.
-* **데이터셋:** 555장의 자체 수집 및 라벨링 데이터 (Data Augmentation 적용).
-* **클래스 정의 (총 6개):** [정답] 올바른 그립 1개 / [오답] 테니스 그립, 검지 펴짐, 검지-엄지 순서 불일치, 엄지 펴짐 4개 / 기타 1개.
-* **모델 선정:** 여러 모델(YOLOv8/11/26) 비교 결과, 정확도(mAP50)와 inference_time_ms, 모델 크기를 종합적으로 고려하여 가장 효율적인 YOLO11n을 최종 선정했습니다.
-
-### 4.2. 스윙 자세 교정 알고리즘 (MediaPipe & FastDTW)
-국가대표 출신 코치의 완벽한 스윙 동작을 Ground Truth(GT)로 삼아 사용자의 관절 각도와 위치를 평가합니다.
-* **전처리 및 정규화:** 다양한 신체 크기와 촬영 거리에 대응하기 위해 어깨 폭과 골반을 기준으로 스켈레톤 데이터를 정규화했습니다.
-* **시간 정렬 (FastDTW):** 사람마다 다른 스윙 속도를 맞추기 위해 FastDTW를 적용하여 전문가와 사용자의 프레임을 동기화했습니다.
-* **단계별 100점 만점 룰 기반 평가 (10개 지표):**
-  * **Ready (준비):** 팔꿈치 각도(18°~70°), 손목 높이, 스탠스 너비.
-  * **Backswing (백스윙):** 골반/어깨 회전율, 손목 깊이, 팔꿈치 들림 비, L자 팔 각도(60°~110°).
-  * **Impact (임팩트) & Follow Swing:** 팔 뻗음 각도(140°~180°), 팔로우스루 시 손목/팔꿈치 궤적 교차 여부.
-
-### 4.3. 맞춤형 LLM 코칭 리포트 (RAG Architecture)
-* **모델:** Llama-3.1-8b-instant
-* **RAG 파이프라인:** 실제 배드민턴 코칭 매뉴얼 자료를 `intfloat/multilingual-e5-base` 모델로 임베딩하여 벡터 DB에 구축. 사용자의 약점(점수가 낮고 변동성이 큰 동작)을 분석하여 전문적인 텍스트 피드백과 연관 유튜브 튜토리얼을 제공합니다.
-
----
-
-## 🚀 5. R&D 및 트러블슈팅 (Troubleshooting)
-
-### 🔴 셔틀콕 궤적 기반 스윙 분석의 구조적 한계 발견
-* **시도:** 셔틀콕의 이동 궤적(TrackNetV3)을 추적하여 타점과 낙하점을 포착하고 이상적인 스윙 궤적을 시각화하고자 했습니다.
-* **한계 및 결론:** 하얀 셔틀콕이 하얀 체육관 벽을 지날 때 발생하는 보호색 현상(객체 소실), 조명 노이즈, 카메라 흔들림 등으로 인해 현존하는 비전 AI 모델로는 통제되지 않은 일반 환경에서 궤적을 완벽히 추적하는 것에 명백한 한계가 있음을 확인하고, 자세 교정의 정확도를 높이는 데 집중했습니다.
-
-### 🟢 프론트엔드 캐시 오염 문제 해결
-* **문제:** 팀원 간 코드 동기화 이후 예상치 못한 브라우저 캐시 및 localStorage 오염으로 인해 새로운 분석 `post_id`를 정상적으로 받아오지 못하는 버그가 발생했습니다.
-* **해결:** `localStorage.clear()` 로직을 추가하여 캐시를 안전하게 정리함으로써 데이터 싱크 실패(Code Sync Fail) 문제를 해결했습니다.
-
----
-
-## 👨‍💻 6. 팀원 소개 (Team)
-
-| 이름 | 역할 분담 |
-| :--- | :--- |
-| **노은서** | 팀장/PM,  자세교정 알고리즘 |
-| **김민지** | 프론트엔드, 스윙 알고리즘 |
-| **이원호** | 백엔드, LLM 종합 리포트 |
-| **권주은** | 백엔드 |
-| **한태호** | 셔틀콕 궤적 알고리즘, 그립 알고리즘 |
-
+### ⚙️ 8.5 마이페이지 (정보 수정 및 탈퇴)
+<p align="center">
+  <video src="https://github.com/user-attachments/assets/74bed9c2-a241-4f32-b0a7-c5dc92c738f6" autoplay loop muted playsinline width="70%"></video>
+</p>
