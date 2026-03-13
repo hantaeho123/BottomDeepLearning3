@@ -7,11 +7,6 @@ import subprocess
 
 
 
-
-
-
-
-
 ######## graph ########
 
 
